@@ -11,12 +11,21 @@ import { JobStartAction } from '../../action-definitions/jobs/job-start-action/j
 import { JobStatusEnum } from '../../models/data-layer/job-status.enum';
 import { JobCompleteAction } from '../../action-definitions/jobs/job-complete-action/job-complete-action';
 import { JobRestartAction } from '../../action-definitions/jobs/job-restart-action/job-restart-action';
+import { AsyncPipe } from '@angular/common';
+import { JobsTableComponent } from '../../shared/jobs-table/jobs-table/jobs-table.component';
+import { ViewTitleComponent } from '../../shared/view-title/view-title/view-title.component';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-user',
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        ViewTitleComponent,
+        JobsTableComponent,
+        AsyncPipe,
+    ],
 })
 export class UserComponent implements OnInit {
   currentUser$ = new BehaviorSubject<UserModel>(undefined);

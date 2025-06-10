@@ -8,12 +8,21 @@ import { JobUnassignAction } from '../../action-definitions/jobs/job-unassign-ac
 import { JobStartAction } from '../../action-definitions/jobs/job-start-action/job-start-action';
 import { JobRestartAction } from '../../action-definitions/jobs/job-restart-action/job-restart-action';
 import { JobStatusEnum } from '../../models/data-layer/job-status.enum';
+import { AsyncPipe } from '@angular/common';
+import { JobsTableComponent } from '../../shared/jobs-table/jobs-table/jobs-table.component';
+import { ViewTitleComponent } from '../../shared/view-title/view-title/view-title.component';
 
 @Component({
-  selector: 'app-jobs',
-  templateUrl: './jobs.component.html',
-  styleUrls: ['./jobs.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-jobs',
+    templateUrl: './jobs.component.html',
+    styleUrls: ['./jobs.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        ViewTitleComponent,
+        JobsTableComponent,
+        AsyncPipe,
+    ],
 })
 export class JobsComponent {
   jobs$ = this.jobsService.readList$();
