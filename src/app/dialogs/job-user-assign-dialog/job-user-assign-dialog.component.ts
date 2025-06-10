@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { JobsService } from '../../services/jobs.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { UserModel } from '../../models/presentation-layer/user.model';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -14,8 +14,8 @@ import { JobUserAssignDialogDataModel } from './models/job-user-assign-dialog-da
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JobUserAssignDialogComponent implements OnInit {
-  formGroup = new FormGroup({
-    userId: new FormControl(),
+  formGroup = new UntypedFormGroup({
+    userId: new UntypedFormControl(),
   });
 
   availableUsers: UserModel[];

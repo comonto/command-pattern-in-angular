@@ -121,6 +121,5 @@
         }
       }
     }
-  },
-  "defaultProject": "command-pattern-in-angular"
+  }
 }
